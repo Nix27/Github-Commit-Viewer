@@ -9,8 +9,8 @@ export default {
     extend: {
       colors: {
         'primary-gray': '#363636',
-        'darker-gray': '#282828',
-        'dark': '#2E2E2E',
+        'darker-gray': '#2E2E2E',
+        'dark': '#282828',
         'transparent-dark': 'rgba(24,24,24,0.4)',
         'primary-orange': '#EFA56F'
       },
