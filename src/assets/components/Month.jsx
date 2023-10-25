@@ -1,14 +1,12 @@
 import React from 'react'
 import Week from './Week'
 
-const Month = ({ monthYear }) => {
-  const numberOfDays = monthYear.daysInMonth
-  const numberOfWeeks = Math.ceil(numberOfDays / 7)
+const Month = ({ weeks }) => {
 
   return (
     <div className='grid grid-flow-row gap-5 px-5 mt-5'>
-        {dates.map(d => (
-            <Week key={crypto.randomUUID()} />
+        {weeks.map(week => (
+            <Week key={crypto.randomUUID()} days={week} />
         ))}
     </div>
   )

@@ -1,13 +1,13 @@
 import React from 'react'
 import Day from './Day'
 
-const Week = () => {
+const Week = ({ days }) => {
   return (
     <div className=''>
         <ul className='grid grid-cols-7 gap-5'>
-            {dates.map(d => (
-                <li key={crypto.randomUUID()}>
-                    <Day />
+            {days.map((day, index) => (
+                <li key={crypto.randomUUID()} className=''>
+                    <Day day={day} />
                 </li>
             ))}
         </ul>
