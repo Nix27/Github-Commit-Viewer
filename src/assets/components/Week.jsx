@@ -3,10 +3,10 @@ import Day from './Day'
 
 const Week = ({ days }) => {
   return (
-    <div className=''>
-        <ul className='grid grid-cols-7 gap-5'>
-            {days.map((day, index) => (
-                <li key={crypto.randomUUID()} className=''>
+    <div className='w-auto'>
+        <ul className={`grid grid-cols-7 gap-5`}>
+            {days.map(day => (
+                <li key={crypto.randomUUID()}>
                     <Day day={day} />
                 </li>
             ))}
