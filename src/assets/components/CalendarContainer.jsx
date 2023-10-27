@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CalendarNavigator from './CalendarNavigator'
 import Calendar from './Calendar'
 import { DateTime } from 'luxon'
-import getWeeksOfCurrentMonth from '../dateUtilities/dateUtils'
+import getWeeksWithCommits from '../data/weekCommitUtils'
 
 const CalendarContainer = () => {
   const [currentDate, setCurrentDate] = useState(DateTime.now())
-  const weeks = getWeeksOfCurrentMonth(currentDate)
+  const [weeks, setWeeks] = useState([])
+
+  useEffect(() => {
+    const weeksWithCommitsPromise = getWeeksWithCommits(currentDate)
+
+    weeksWithCommitsPromise .then(res => setWeeks(res))
+                            .catch(err => console.log(err))
+  }, [currentDate])
 
   function handleNextMonthChange(){
     setCurrentDate(prev => {

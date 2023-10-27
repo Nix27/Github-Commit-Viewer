@@ -30,4 +30,4 @@ function getWeek(numberOfDays, startDateOfWeek){
     const lastDateOfWeek = (startDateOfWeek + numberOfDays) - 1; 
  
     return Array.from({length: (lastDateOfWeek - startDateOfWeek) + 1}, (value, index) => startDateOfWeek + index)
- }
+}
