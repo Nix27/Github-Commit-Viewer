@@ -1,15 +1,12 @@
 import { DateTime } from "luxon";
 
-export default function getDateFromUrlOrDefault(){
-    const url = window.location.href;
-    const date = url.substring(url.lastIndexOf('/') + 1)
-
+export default function getDateFromUrlOrDefault(dateParam){
     try {
-        if(date){
-            return DateTime.fromISO(date)
+        if(dateParam){
+            return DateTime.fromISO(dateParam)
         }
     }catch(err){
-        console.log(err)
+        console.log(err);
     }
 
     return DateTime.now()

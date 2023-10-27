@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react'
 import CalendarNavigator from './CalendarNavigator'
 import Calendar from './Calendar'
 import { DateTime } from 'luxon'
-import getWeeksWithCommits from '../data/weekCommitUtils'
-import getDateFromUrlOrDefault from '../data/urlUtils'
+import getWeeksWithCommits from '../assets/data/weekCommitUtils'
+import getDateFromUrlOrDefault from '../assets/data/urlUtils'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const CalendarContainer = () => {
-  const [currentDate, setCurrentDate] = useState(getDateFromUrlOrDefault())
+  const { dateParameter } = useParams()
+  const navigate = useNavigate();
+  const [currentDate, setCurrentDate] = useState(() => {
+    return getDateFromUrlOrDefault(dateParameter)
+  })
   const [weeks, setWeeks] = useState([])
   
   useEffect(() => {
@@ -14,7 +19,9 @@ const CalendarContainer = () => {
 
     weeksWithCommitsPromise .then(res => setWeeks(res))
                             .catch(err => console.log(err))
-  }, [currentDate])
+
+    navigate(`/${currentDate.toFormat('yyyy-MM-dd')}`)
+  }, [currentDate, navigate])
 
   function handleNextMonthChange(){
     setCurrentDate(prev => {
