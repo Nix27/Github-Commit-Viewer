@@ -6,7 +6,7 @@ export default async function getCommits(since, until){
     let commits =[]
   
     const octokit = new Octokit({
-      auth: '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'
+      auth: import.meta.env.CALENDAR_GITHUB_TOKEN
     })
   
     await octokit.request('GET /repos/{owner}/{repo}/commits', {

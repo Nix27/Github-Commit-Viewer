@@ -3,11 +3,12 @@ import CalendarNavigator from './CalendarNavigator'
 import Calendar from './Calendar'
 import { DateTime } from 'luxon'
 import getWeeksWithCommits from '../data/weekCommitUtils'
+import getDateFromUrlOrDefault from '../data/urlUtils'
 
 const CalendarContainer = () => {
-  const [currentDate, setCurrentDate] = useState(DateTime.now())
+  const [currentDate, setCurrentDate] = useState(getDateFromUrlOrDefault())
   const [weeks, setWeeks] = useState([])
-
+  
   useEffect(() => {
     const weeksWithCommitsPromise = getWeeksWithCommits(currentDate)
 
