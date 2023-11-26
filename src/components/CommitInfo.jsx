@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { DateTime } from 'luxon'
 import CommitDetails from './CommitDetails'
 
-const CommitInfoContainer = ({ commit }) => {
+const CommitInfoContainer = ({ commits }) => {
   const [toggleDetails, setToggleDetails] = useState(false)
 
   function handleToogleDetails(){
@@ -13,10 +13,10 @@ const CommitInfoContainer = ({ commit }) => {
     <>
     <div className='bg-dark flex flex-col items-center py-1 px-5 text-primary-orange rounded-[2rem] cursor-pointer transition-all hover:scale-95'
          onClick={() => handleToogleDetails()}>
-        <p>{commit.message.length <= 10 ? commit.message : commit.message.substring(0, 10)}...</p>
-        <p>{commit.date.toFormat('HH:mm')}</p>
+        <p>{commits[0].message.length <= 10 ? commits[0].message : commits[0].message.substring(0, 10)}...</p>
+        <p>{commits[0].date.toFormat('HH:mm')}</p>
     </div>
-    {toggleDetails && <CommitDetails commitDetails={commit} handleToogleDetails={handleToogleDetails} />}
+    {toggleDetails && <CommitDetails commitsDetails={commits} handleToogleDetails={handleToogleDetails} />}
     </>
   )
 }

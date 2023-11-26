@@ -5,7 +5,7 @@ const Week = ({ days, isFirstWeek }) => {
   let daysOfWeek = [...days];
 
   if(isFirstWeek){
-    daysOfWeek = setEmptyDays(days.length, days)
+    daysOfWeek = setEmptyDays(daysOfWeek)
   }
 
   return (
@@ -23,13 +23,9 @@ const Week = ({ days, isFirstWeek }) => {
 
 export default Week
 
-function setEmptyDays(numberOfDays, days){
-  const numberOfEmpty = 7 - numberOfDays
-  const daysWithEmpty = [...days]
+function setEmptyDays(days){
+  const numberOfEmpty = 7 - days.length
+  const daysWithEmpty = new Array(numberOfEmpty)
 
-  for(let i = 0; i < numberOfEmpty; i++) {
-      daysWithEmpty.unshift(null)
-  }
-
-  return daysWithEmpty
+  return [...daysWithEmpty, ...days];
 }

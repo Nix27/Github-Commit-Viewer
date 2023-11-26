@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.4",
     "luxon": "^3.4.3",
     "octokit": "^3.1.1",
     "react": "^18.2.0",

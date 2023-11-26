@@ -11,7 +11,7 @@ export default async function getCommits(since, until){
   
     await octokit.request('GET /repos/{owner}/{repo}/commits', {
       owner: 'Nix27',
-      repo: 'Calendar',
+      repo: 'Snowboarding_equipment_webshop',
       since: since.toISO(),
       until: until.toISO(),
       headers: {
