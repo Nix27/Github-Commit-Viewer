@@ -2,12 +2,12 @@ import { DateTime } from 'luxon';
 import getCommits from './commitUtils';
 import getWeeksOfCurrentMonth from './dateUtils';
 
-export default async function getWeeksWithCommits(currentDate){
+export default async function getWeeksWithCommits(currentDate, owner, repository, isForSearch){
     const weeks = getWeeksOfCurrentMonth(currentDate)
     let numberOfDays = currentDate.daysInMonth
     const firstDate = DateTime.local(currentDate.year, currentDate.month, 1)
     const lastDate = DateTime.local(currentDate.year, currentDate.month, numberOfDays)
-    const commits = await getCommits(firstDate, lastDate);
+    const commits = await getCommits(firstDate, lastDate, owner, repository, isForSearch);
 
     let weeksWithCommits = []
 
