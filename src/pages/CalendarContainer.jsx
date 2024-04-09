@@ -23,7 +23,7 @@ const CalendarContainer = () => {
   
   useEffect(() => {
     const owner = repoData ? repoData.owner : 'Nix27';
-    const repository = repoData ? repoData.repository : 'Snowboarding_equipment_webshop';
+    const repository = repoData ? repoData.repository : 'RWA_Projekt_VideoStreaming';
 
     const weeksWithCommitsPromise = getWeeksWithCommits(currentDate, owner, repository, isSubmited.current);
 

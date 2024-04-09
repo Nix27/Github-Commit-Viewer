@@ -13,9 +13,9 @@ const SearchDialog = ({ handleToogleSearch, handleSubmit }) => {
             handleSubmit(e.target.elements.owner.value, e.target.elements.repository.value)
         }}>
             <label htmlFor='owner'>Username of repository owner:</label>
-            <input type='text' id='owner' name='owner' autoFocus required className='focus:outline-none placeholder-primary-orange bg-transparent-dark text-center rounded-[5px] px-1 py-2 w-full mb-2' />
+            <input type='text' id='owner' name='owner' autoFocus required className='focus:outline-none placeholder-opacity-50 placeholder-blue-gray-200 bg-transparent-dark text-center rounded-[5px] px-1 py-2 w-full mb-2' placeholder='Nix27...' />
             <label htmlFor='repository'>Repository name:</label>
-            <input type='text' id='repository' name='repository' required className='focus:outline-none bg-transparent-dark rounded-[5px] text-center px-1 py-2 w-full mb-5' />
+            <input type='text' id='repository' name='repository' required className='focus:outline-none placeholder-opacity-50 placeholder-blue-gray-200 bg-transparent-dark rounded-[5px] text-center px-1 py-2 w-full mb-5' placeholder='RWA_Projekt_VideoStreaming...' />
             <button type='submit' className='text-primary-orange bg-transparent-dark w-[50%] rounded-[10px] py-1 transition-all hover:scale-105'>Find</button>
         </form>
       </div>
